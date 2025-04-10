@@ -1,0 +1,51 @@
+# inner join
+SELECT CityID,Address
+ FROM x.customers
+ inner join sales
+ on customers.CustomerID=sales.CustomerID;
+
+# right join 
+SELECT CityID,Address
+ FROM x.customers
+ right join sales
+ on customers.CustomerID=sales.CustomerID;
+
+
+left join
+SELECT CityID,Address
+ FROM x.customers
+ left join sales
+ on customers.CustomerID=sales.CustomerID;
+
+
+#subqueries
+SELECT ProductId,ProductName, (select avg(price)  FROM x.products)  as avg_price
+ FROM x.products
+ order by ProductName;
+
+
+SELECT ProductId, ProductName, Class
+FROM x.products
+WHERE Class IN (
+    SELECT Class
+    FROM x.products
+    WHERE Class = 'Medium'
+);
+
+
+#views
+CREATE VIEW MediumProductDetails AS
+SELECT Price, CategoryID
+FROM x.Products
+WHERE Class = 'Medium';
+select * from  MediumProductDetails;
+
+# index
+create index xy
+on categories(CategoryID);
+show index from Categories;
+
+
+
+
+
