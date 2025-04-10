@@ -1,0 +1,35 @@
+#To find the max price
+SELECT max(price) as highest_price 
+FROM x.order_customer;
+
+
+#To find the min price
+SELECT min(price) as highest_price 
+FROM x.order_customer;
+
+
+#customers with cityid '95'
+SELECT * FROM x.customers
+where CityID=95;
+
+# sum of the prices
+SELECT sum(price) as Total_sales 
+FROM x.order_customer;
+
+
+#sum of the avg of prices
+SELECT avg(price) as avg_sales
+FROM x.order_customer;
+
+
+# order by
+SELECT order_id,price FROM x.order_customer
+order by order_id;
+
+
+#group by 
+SELECT order_id,sum(price) FROM x.order_customer
+order by group by;
+
+
+
